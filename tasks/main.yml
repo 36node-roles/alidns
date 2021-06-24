@@ -40,6 +40,8 @@
       aliyun alidns AddDomainRecord --DomainName $domain --RR "$pr" --Type $type --Value $ip
       echo "<<< created: $domain $pr $ip $type"
     fi
+  args:
+    executable: /bin/bash
   with_items: "{{ alidns_records }}"
   changed_when: "'updated' in res.stdout or 'created' in res.stdout or 'deleted' in res.stdout"
   register: res
