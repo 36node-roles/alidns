@@ -18,10 +18,10 @@
   shell: |
     read -a args <<< "{{ item }}"
 
-    domain=${args[0] }
-    pr=${args[1] }
-    ip=${args[2] }
-    type=${args[3] }
+    domain=${args[0]}
+    pr=${args[1]}
+    ip=${args[2]}
+    type=${args[3]}
 
     res=`aliyun alidns DescribeSubDomainRecords --SubDomain ${pr}.${domain} --Type $type`
     count=`echo $res | jq ".TotalCount"`
